@@ -27,7 +27,11 @@
   color: white;
 }
 
-#nav-bar .toggle {
+.toggle {
   float: right;
-  padding: 2em;
+  margin-top: 25px;
+  margin-right: 20px;
+  position:relative;
+  z-index: 1;
+
 }
