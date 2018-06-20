@@ -1,0 +1,51 @@
+.new-tweet {
+  background-color: #f0f0f0;
+  width: 100%;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.tweet {
+  border: solid 1px grey;
+  border-radius: 5px;
+  transition: 300ms;
+}
+
+.tweet header, .tweet section, .tweet footer {
+  padding: 0.5rem
+
+}
+
+.textarea {
+  background-color: white;
+  width: 100%;
+}
+
+header {
+  background-color: aliceblue;
+  border-radius: 5px 5px 0px 0px; 
+}
+
+
+.tweet:hover { 
+  border-color: black;
+  border: solid 1px;
+  
+}  
+
+
+.showTweets {
+  border-radius: 15px;
+  padding: 10px;
+  margin-top: 20px;
+  background-color: lemonchiffon;
+}    
+
+.tweettimer i {
+  color: transparent;
+  transition: 300ms;
+}
+
+.tweet:hover .tweettimer i {
+  color:black;
+}
