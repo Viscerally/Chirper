@@ -12,7 +12,7 @@
 
 $(document).ready(function () {
 
-  $(".toggle").click(function() {
+  $(".btn-default").click(function() {
     $( ".new-tweet" ).toggle( "fast", function() {
       // Animation complete.
     });
@@ -85,7 +85,7 @@ $(document).ready(function () {
     let $article = $('<article>').addClass('tweet');
     let $header = $('<header>');
     let $toggle = $('<button>').addClass('toggle');
-    let $avatar = $('<img>').addClass('avatar').attr('src', tweet.user.avatars.small); //style is not yet created (still inline)
+    let $avatar = $('<img>').addClass('avatar').attr('src', tweet.user.avatars.small); 
 
     let $tweetername = $('<span>').addClass('tweetername')
     $tweetername.text(tweet.user.name);
@@ -102,7 +102,7 @@ $(document).ready(function () {
 
     let $i_rt = $('<i>').addClass('fas fa-retweet');
 
-    let $i_heart = $('<i>').addClass('far fa-heart');
+    let $i_heart = $('<i>').addClass('fas fa-heart');
     
     $header.append($avatar);
     $header.append($tweetername);
