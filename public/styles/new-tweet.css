@@ -9,11 +9,25 @@
   border: solid 1px grey;
   border-radius: 5px;
   transition: 300ms;
+  margin: 15px 0 15px;
 }
 
-.tweet tweetheader, .tweet section, .tweet footer {
-  padding: 0.5rem
+.tweetername {
+  font-style:bold;
+}
 
+.tweet tweetheader {
+  padding: 0.5rem;
+  display:flex;
+  justify-content: space-between;
+}
+
+.tweet section {
+  padding: 0.5rem;
+}
+
+.tweet footer {
+  padding: 0.5rem;
 }
 
 .textarea {

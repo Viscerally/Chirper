@@ -23,18 +23,20 @@ $(document).ready(function () {
   //   var tweetStrings= $('form').serialize();
   // });
   loadTweets();
-
+  toastr.options.positionClass = 'toast-bottom-right';
+  toastr.options.closeButton = 'true';
   function loadTweets() {
      $.ajax({
       url: '/tweets',
       type: 'GET',
       success: function (result) {
+        $('.showTweets').html('');
         result.forEach(function(tweet){
           renderTweets(tweet);
         });
       },
       error: function(err){
-        alert("there is an error");
+        toastr.info("there is an error");
       }
     });
   }
@@ -42,14 +44,14 @@ $(document).ready(function () {
   $('form').on('submit',function(e){
     e.preventDefault();
     let tweet = $('#tweettext').val();
-    console.log(tweet);
+    // console.log(tweet);
     let data = {
       text: tweet
     };
     if (!tweet.length){
-      alert("You need to type something in")
+      toastr.warning("You need to type something in")
      } else if (tweet.length > 140) {
-        alert('Your tweet is too long')
+        toastr.warning('Your tweet is too long')
       } else {
       $.ajax({
         url: '/tweets',
@@ -61,7 +63,7 @@ $(document).ready(function () {
           
         },
         error: function(err){
-          alert("Please type something in!");
+          toastr.warning("Please type something in!");
         }
       });
       
@@ -73,7 +75,8 @@ $(document).ready(function () {
 
   
   function renderTweets(data) {
-    console.log(data);
+    // console.log(data);
+    // $('.showTweets').html("");
     createTweetElement(data);
 
     
@@ -81,43 +84,62 @@ $(document).ready(function () {
   }
 
   function createTweetElement(tweet) {
-    let $tweet = $('<section>').addClass('showTweets');
-    let $article = $('<article>').addClass('tweet');
-    let $header = $('<header>');
-    let $toggle = $('<button>').addClass('toggle');
-    let $avatar = $('<img>').addClass('avatar').attr('src', tweet.user.avatars.small); 
+    let $tweet = `<article class="tweet">
+    <header class=tweetheader>   
+      <img src=${tweet.user.avatars.small} style="width:50px;height:60px;border-radius: 20px;">
+      <span class="tweetername">${tweet.user.name}</span>
+      <span class="tweetholla">${tweet.user.handle}</span>
+    </header>
+    <section class="tweetbod">
+      <p>${tweet.content.text}</p>
+    </section>
+    <footer class= "tweettimer"> 
+        ${Math.round(tweet.created_at/86400000000) + ' days ago'}
+        <i class="fas fa-flag"></i>
+        <i class="fas fa-retweet"></i>
+        <i class="fas fa-heart"></i>       
+    </footer>
+  </article>`
 
-    let $tweetername = $('<span>').addClass('tweetername')
-    $tweetername.text(tweet.user.name);
 
-    let $tweetholla = $('<span>').addClass('tweetholla')
-    $tweetholla.text(tweet.user.handle);
+    // let $tweet = $('<section>').addClass('showTweets');
+    // let $article = $('<article>').addClass('tweet');
+    // let $header = $('<tweetheader>');
+    // // let $toggle = $('<button>').addClass('toggle');
+    // let $avatar = $('<img>').addClass('avatar').attr('src', tweet.user.avatars.small); 
 
-    let $tweetbod = $('<section>').addClass('tweetbod');
+    // let $tweetername = $('<span>').addClass('tweetername')
+    // $tweetername.text(tweet.user.name);
 
-    let $tweettimer = $('<footer>').addClass('tweettimer')
-    $tweettimer.text(tweet.created_at); 
+    // let $tweetholla = $('<span>').addClass('tweetholla')
+    // $tweetholla.text(tweet.user.handle);
 
-    let $i_flag = $('<i>').addClass('fas fa-flag');
+    // let $tweetbod = $('<section>').addClass('tweetbod');
 
-    let $i_rt = $('<i>').addClass('fas fa-retweet');
+    // let $tweettimer = $('<footer>').addClass('tweettimer')
+    // $tweettimer.text(Math.round(tweet.created_at/86400000000) + ' days ago'); 
 
-    let $i_heart = $('<i>').addClass('fas fa-heart');
+    // let $i_flag = $('<i>').addClass('fas fa-flag');
+
+    // let $i_rt = $('<i>').addClass('fas fa-retweet');
+
+    // let $i_heart = $('<i>').addClass('fas fa-heart');
     
-    $header.append($avatar);
-    $header.append($tweetername);
-    $header.append($tweetholla);
-    $tweetbod.text(tweet.content.text);
-    $tweettimer.append($i_flag);
-    $tweettimer.append($i_rt);
-    $tweettimer.append($i_heart);
-    $tweet.append($article);
-    $article.append($header);
-    $article.append($tweetbod);
-    $article.append($tweettimer);
-    // console.log($header);
-    $('.container').append($tweet);
-    //console.log('test');
+    // $header.append($avatar);
+    // $header.append($tweetername);
+    // $header.append($tweetholla);
+    // $tweetbod.text(tweet.content.text);
+    // $tweettimer.append($i_flag);
+    // $tweettimer.append($i_rt);
+    // $tweettimer.append($i_heart);
+    // $tweet.append($article);
+    // $article.append($header);
+    // $article.append($tweetbod);
+    // $article.append($tweettimer);
+    // // console.log($header);
+    // $('.showTweets').html("");
+    $('.showTweets').prepend($tweet);
+    // //console.log('test');
 
     
   }
