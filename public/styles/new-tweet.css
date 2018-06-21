@@ -11,7 +11,7 @@
   transition: 300ms;
 }
 
-.tweet header, .tweet section, .tweet footer {
+.tweet tweetheader, .tweet section, .tweet footer {
   padding: 0.5rem
 
 }
@@ -21,9 +21,11 @@
   width: 100%;
 }
 
-header {
+.tweetheader {
   background-color: aliceblue;
   border-radius: 5px 5px 0px 0px; 
+  display:flex;
+  justify-content: space-between
 }
 
 
