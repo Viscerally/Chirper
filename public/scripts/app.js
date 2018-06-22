@@ -12,16 +12,18 @@
 
 $(document).ready(function () {
 
+  function escape(str) {
+    var div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+ }
+
   $(".btn-default").click(function() {
     $( ".new-tweet" ).toggle( "fast", function() {
       // Animation complete.
     });
   });
-
-  // var $form = $('form').on('submit', function(event){
-  //   event.preventDefault();
-  //   var tweetStrings= $('form').serialize();
-  // });
+  
   loadTweets();
   toastr.options.positionClass = 'toast-bottom-right';
   toastr.options.closeButton = 'true';
@@ -91,7 +93,7 @@ $(document).ready(function () {
       <span class="tweetholla">${tweet.user.handle}</span>
     </header>
     <section class="tweetbod">
-      <p>${tweet.content.text}</p>
+      <p>${escape(tweet.content.text)}</p>
     </section>
     <footer class= "tweettimer"> 
         ${Math.round(tweet.created_at/86400000000) + ' days ago'}
