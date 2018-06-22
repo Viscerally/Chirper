@@ -8,4 +8,3 @@ $(document).ready(function () {
     counter.css({ color });
   });
 });
-

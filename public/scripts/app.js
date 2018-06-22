@@ -60,9 +60,10 @@ $(document).ready(function () {
         type: 'POST',
         data: data,
         success: function () {
-          console.log("it works!");  
+          // console.log("it works!");  
           loadTweets();
-          
+          $('#tweettext').val('');
+          $('.counter').text('140');
         },
         error: function(err){
           toastr.warning("Please type something in!");
