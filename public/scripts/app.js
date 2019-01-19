@@ -104,50 +104,13 @@ $(document).ready(function () {
     </footer>
   </article>`
 
-
-    // let $tweet = $('<section>').addClass('showTweets');
-    // let $article = $('<article>').addClass('tweet');
-    // let $header = $('<tweetheader>');
-    // // let $toggle = $('<button>').addClass('toggle');
-    // let $avatar = $('<img>').addClass('avatar').attr('src', tweet.user.avatars.small); 
-
-    // let $tweetername = $('<span>').addClass('tweetername')
-    // $tweetername.text(tweet.user.name);
-
-    // let $tweetholla = $('<span>').addClass('tweetholla')
-    // $tweetholla.text(tweet.user.handle);
-
-    // let $tweetbod = $('<section>').addClass('tweetbod');
-
-    // let $tweettimer = $('<footer>').addClass('tweettimer')
-    // $tweettimer.text(Math.round(tweet.created_at/86400000000) + ' days ago'); 
-
-    // let $i_flag = $('<i>').addClass('fas fa-flag');
-
-    // let $i_rt = $('<i>').addClass('fas fa-retweet');
-
-    // let $i_heart = $('<i>').addClass('fas fa-heart');
-    
-    // $header.append($avatar);
-    // $header.append($tweetername);
-    // $header.append($tweetholla);
-    // $tweetbod.text(tweet.content.text);
-    // $tweettimer.append($i_flag);
-    // $tweettimer.append($i_rt);
-    // $tweettimer.append($i_heart);
-    // $tweet.append($article);
-    // $article.append($header);
-    // $article.append($tweetbod);
-    // $article.append($tweettimer);
-    // // console.log($header);
-    // $('.showTweets').html("");
     $('.showTweets').prepend($tweet);
-    // //console.log('test');
+
 
     
   }
 
 
-  // renderTweets(data);
+
   renderTweets();
 });
