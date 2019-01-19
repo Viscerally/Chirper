@@ -1,20 +1,10 @@
-# Tweeter Project
+# Chirper Project
 
-Tweeter is a simple, single-page Twitter-clone built over the course of 4 days.
+Chirper is a simple, single-page Twitter-clone built over the course of 3 hours.
 
 Front-end stuff: ``HTML``, ``CSS``, ``JS``, ``jQuery`` and ``AJAX`` 
 
 Back-end tech: ``Node``, `Express` and `MongoDB` 
-
-
-## Screenshots
-
-### Dynamically Render Tweets!
-![](https://i.imgur.com/B5rf2AQ.png?1)
-
-### Form alerts users if Tweets are too long! (Or too short!)
-
-![](https://i.imgur.com/Iw7yRxu.png?1)
 
 
 ## Getting Started
