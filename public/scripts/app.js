@@ -64,6 +64,7 @@ $(document).ready(function () {
           loadTweets();
           $('#tweettext').val('');
           $('.counter').text('140');
+          toastr.success('Success! Tweet Posted!');
         },
         error: function(err){
           toastr.warning("Please type something in!");
@@ -98,9 +99,7 @@ $(document).ready(function () {
     </section>
     <footer class= "tweettimer"> 
         ${Math.round(tweet.created_at/86400000000) + ' days ago'}
-        <i class="fas fa-flag"></i>
-        <i class="fas fa-retweet"></i>
-        <i class="fas fa-heart"></i>       
+        <i class="far fa-heart"></i>    
     </footer>
   </article>`
 
